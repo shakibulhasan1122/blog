@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+<div class="container">
+  <div class="row mb-2">
+    {% for story in articles %}
+
+    
+      <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success">{{story.article}}</strong>
+            <h3 class="mb-0">{{story.title}}</h3>
+            <div class="mb-1 text-muted"></div>
+            <p class="card-text mb-auto">{{ story.story|truncatewords:30 }}</p>
+            <a href="{% url 'article_page' story.pk %}" class="btn btn-primary">Click to read more</a>
+            <div class="card-footer bg-transparent" >{{ story.author }}</div>
+          </div>
+          
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div> 
+        </div>
+    </div>
+    <br>
+  {% endfor %} 
+</div>
+</div> 
+<br>
+<div class="container-fluid">
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if articles.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1"> << </a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ articles.previous_page_number }}">{{ articles.previous_page_number }}</a></li>
+      {% endif %}
+      
+      <li class="page-item active"><a class="page-link" href="?page={{ articles.number }}" >{{ articles.number }}</a></li>
+
+      {% if articles.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}">{{articles.next_page_number}}</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ articles.paginator.num_pages }}"> >> </a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+<br>
+
+{% endblock %}

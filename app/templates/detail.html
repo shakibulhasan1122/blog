@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+
+    
+    <div class="card">
+        <div class="card-header">
+        Full Story
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{gaitonde.title}}</h5>
+          <p class="card-text">{{gaitonde.story|linebreaks}}</p>
+        </div>
+        <div class="card-footer bg-transparent border-success">{{gaitonde.author}}</div>
+      </div>
+      <br>
+
+{% endblock %}

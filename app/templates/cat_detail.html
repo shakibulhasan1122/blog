@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+
+    
+    <div class="card">
+        <div class="card-header">
+        {{cat.genre}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{cat.title}}</h5>
+          <p class="card-text">{{ cat.story|truncatewords:50 }}</p>
+        </div>  
+          <div class="card-footer bg-transparent border-success">{{ cat.author }}</div>
+        </div>
+      </div>
+        </div>
+      </div>
+      <br>
+
+{% endblock %}

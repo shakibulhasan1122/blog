@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+
+    
+    <div class="card">
+        <div class="card-header">
+        {{writer.author}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{writer.full_name}}</h5>
+          <p class="card-text">Age: {{writer.age}}</p>
+          <p class="card-text">Place: {{writer.place}}</p>
+        </div>
+      </div>
+      <br>
+
+{% endblock %}

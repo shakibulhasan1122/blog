@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <body class="text-center">
+    <br>
+    <br>
+
+    <form class="form-signin" action="" method="POST" style=" width: 100%;max-width: 330px;padding: 15px;margin: auto;border: 1px solid transparent;box-shadow: 0 5px 10px -5px black;">
+      {% csrf_token %}
+        <br>
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputtext"  class="sr-only">Email address</label>
+        <input type="text" id="inputUser" name="user" class="form-control" placeholder="Username" required autofocus >
+        <br>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required>    
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+        <h6>Or</h6>
+        <a href="{% url 'Sign_Up' %}" class="btn btn-lg btn-secondry btn-block" id="reg" type="submit" style="background-color: rgb(12, 109, 28);
+        border: 1px solid;
+        color: white;"> Sign Up</a>
+        <p class="mt-5 mb-3 text-muted">&copy; Writers.com</p>
+      
+    </form>   
+  </body>  
+{% endblock %}      

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+
+    
+    <div class="card">
+        <div class="card-header">
+          Writers
+        </div>
+        {% for author in authors %}
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'author_page' author.pk %}"></href>{{ author.author }}</a></h5>
+          
+        </div>
+        {% endfor %}
+      </div>
+      <br>
+  
+
+{% endblock %}
